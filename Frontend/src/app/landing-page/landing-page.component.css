@@ -1,0 +1,103 @@
+.hero-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full screen height */
+  overflow: hidden;
+}
+
+.hero-header {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.hero-logo img {
+  height: 50px;
+  object-fit: contain;
+  height: 120px;
+}
+
+.hero-links .btn {
+  padding: 8px 18px;
+  margin-left: 10px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.btn-login {
+  background: white;
+  color: #6c63ff;
+  border: 1px solid #6c63ff;
+}
+
+.btn-register {
+  background: #6c63ff;
+  color: white;
+  border: 1px solid #6c63ff;
+}
+
+.btn-login:hover,
+.btn-register:hover {
+  opacity: 0.9;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(104, 58, 183, 0.8), rgba(73, 160, 157, 0.8));
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: white;
+  max-width: 500px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero-content button {
+  background-color: white;
+  color: #6a1b9a;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.hero-content button:hover {
+  background-color: #f1e6ff;
+}

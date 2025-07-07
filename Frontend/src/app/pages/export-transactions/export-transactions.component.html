@@ -1,0 +1,43 @@
+<div class="export-container">
+    <h2 class="export-title">📤 Export Transactions</h2>
+
+    <p class="export-description">Download your financial data as a CSV file</p>
+
+    <div class="form-group">
+        <label for="type">Transaction Type:</label>
+        <select id="type" [(ngModel)]="type" (change)="fetchPreview()">
+            <option value="all">All</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+    </div>
+
+    <div class="preview-box" *ngIf="transactions.length > 0">
+        <h3 class="preview-heading">Preview Transactions ({{ transactions.length }})</h3>
+        <table class="preview-table">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tx of transactions">
+                    <td>{{tx.date}}</td>
+                    <td>{{tx.type}}</td>
+                    <td>{{tx.category}}</td>
+                    <td>{{tx.amount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+   <div class="button-group">
+    <button (click)="exportCsv()" [disabled]="isLoading">
+      {{ isLoading ? 'Exporting...' : '⬇️ Export to CSV' }}
+    </button>
+  </div>
+</div>

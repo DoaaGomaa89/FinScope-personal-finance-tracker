@@ -1,0 +1,24 @@
+<div class="recent-card">
+  <h5 class="recent-title">🕓 Recent Transactions</h5>
+
+  <div *ngIf="recentTransactions.length > 0; else noRecentTemplate">
+    <div class="recent-item" *ngFor="let txn of recentTransactions">
+      <div class="recent-left">
+        <div class="recent-category">{{ txn.category }}</div>
+        <div class="recent-date">{{ txn.date | date: 'MMM d, y' }}</div>
+      </div>
+      <div class="recent-amount" [ngClass]="txn.type === 'INCOME' ? 'income' : 'expense'">
+        ₹{{ txn.amount }}
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noRecentTemplate>
+    <div class="no-data">
+      <img src="images/no-data.png" alt="No recent transactions" />
+      <p><strong>No transactions available.</strong></p>
+      <p class="text">Once you add some, they will appear here.</p>
+      
+    </div>
+  </ng-template>
+</div>

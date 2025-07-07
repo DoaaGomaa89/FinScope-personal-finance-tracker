@@ -1,0 +1,38 @@
+.main-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+app-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  height: 100vh;
+  background-color: #f5f5fa;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.layout-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+
+app-navbar {
+  height: 60px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #ddd;
+  background-color: white;
+  z-index: 1;
+}
+
+
+.page-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #f9f9fc;
+}

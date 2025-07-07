@@ -1,0 +1,83 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(to right, #cfe2ff, #d6ccff);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-section .brand {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+}
+
+.user-dropdown {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  /* border-radius: 50%; */
+  border: 2px solid #888;
+}
+
+.username {
+  font-weight: 500;
+  color: #444;
+}
+
+/* .dropdown-menu {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 5px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  width: 150px;
+} */
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.menu-item {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menu-item:hover {
+  background-color: #f2f2f2;
+}

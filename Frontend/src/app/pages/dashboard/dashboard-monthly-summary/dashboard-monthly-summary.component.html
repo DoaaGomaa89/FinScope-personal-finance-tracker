@@ -1,0 +1,24 @@
+ 
+  <div class="chart-container">
+    <h2 class="chart-title">📊 Monthly Summary</h2>
+
+    <div *ngIf="hasData; else noDataTemplate" class="chart-wrapper">
+      <canvas baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [type]="barChartType">
+      </canvas>
+    </div>
+
+    <ng-template #noDataTemplate>
+      <div class="no-data">
+        <img src="images/no-bar.PNG" alt="No transactions">
+        <p><strong>No transactions available to show.</strong></p>
+          <p class="text">Once you add some, monthly trends will apper hear</p>
+      <button routerLink="/add-transaction">Add transaction</button>
+        </div>
+    </ng-template>
+  </div>
+

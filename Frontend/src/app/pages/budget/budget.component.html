@@ -1,0 +1,102 @@
+<div class="budget-wrapper">
+  
+  <!-- Set Budget Form -->
+  <div class="form-container">
+
+    <h2 class="form-title">{{ editBudgetId ? '✏️ Update Budget' : '🎯 Define Your Budget' }}</h2>
+
+    <div *ngIf="message" class="message-banner">{{ message }}</div>
+
+    <form [formGroup]="budgetForm" (ngSubmit)="setBudget()">
+
+      <!-- Category input -->
+      <label>Category</label>
+      <select formControlName="category" class="dropdown">
+        <option value="" disabled selected hidden>Select Category</option>
+        <option *ngFor="let cat of expenseCategories" [value]="cat.value">{{cat.label}}</option>
+      </select>
+      <div class="error" *ngIf="budgetForm.get('category')?.touched && budgetForm.get('category')?.invalid">
+        Category is required
+      </div>
+
+      <!-- Month input -->
+      <label>Month</label>
+      <input type="month" formControlName="month" />
+      <div class="error" *ngIf="budgetForm.get('month')?.touched && budgetForm.get('month')?.invalid">
+        month is required
+      </div>
+
+      <!-- Limit input -->
+      <label>Limit Amount (₹)</label>
+      <input type="number" formControlName="limitAmount" />
+      <div class="error" *ngIf="budgetForm.get('limitAmount')?.touched && budgetForm.get('limitAmount')?.invalid">
+        limitAmount is required
+      </div>
+
+      <!-- Buttons -->
+      <div class="btn-group">
+        <button type="submit" class="save-btn"[disabled]="budgetForm.invalid">
+          {{ editBudgetId ? 'Update Budget' : 'Set Budget' }}
+        </button>
+        <button type="reset" class="cancel-btn">Cancel</button>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Budget List -->
+  <div class="budget-list">
+
+    <h3 class="section-title">📋 Budget List</h3>
+
+    <div *ngIf="budgets.length === 0" class="no-budget-msg">
+      No budgets set yet. Start by adding your first budget!
+    </div>
+
+    <div *ngFor="let budget of budgets" class="budget-card">
+      <div class="budget-info">
+
+        <div>
+          <strong>📁 {{ budget.category }}</strong>
+          <div>📅 {{ budget.month }} | 💰 ₹{{ budget.limitAmount }}</div>
+          <div>💸 Used: ₹{{ budget.usedAmount }}</div>
+        </div>
+
+        <div class="icon-group">
+          <i class="fa fa-edit edit-icon" (click)="editBudget(budget)"></i>
+          <i class="fa fa-trash delete-icon" (click)="openDeleteModal(budget.id, deleteModal)"></i>
+        </div>
+
+      </div>
+
+      <div class="progress mt-2">
+        <div class="progress-bar" role="progressbar" [style.width.%]="getUsagePercent(budget)"
+          [class.bg-success]="getUsagePercent(budget) < 60"
+          [class.bg-warning]="getUsagePercent(budget) >= 60 && getUsagePercent(budget) < 100"
+          [class.bg-danger]="getUsagePercent(budget) >= 100">
+        </div>
+      </div>
+
+      <div class="text-end small text-muted">
+        {{ getUsagePercent(budget) }}% used
+      </div>
+
+
+
+    </div>
+  </div>
+
+</div>
+
+<ng-template #deleteModal let-modal>
+  <div class="modal-header border-0">
+    <h5 class="modal-title">Confirm Delete</h5>
+  </div>
+  <div class="modal-body text-center">
+    <p>Are you sure want to delete this Budget?</p>
+  </div>
+  <div class="modal-footer justify-content-center border-0">
+    <button type="button" class="btn btn-danger" (click)="confirmDelete(modal)">Delete</button>
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancel</button>
+  </div>
+</ng-template>

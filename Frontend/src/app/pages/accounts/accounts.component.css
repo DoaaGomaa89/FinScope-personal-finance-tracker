@@ -1,0 +1,241 @@
+.account-wrapper {
+  max-width: 950px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+.from-container {
+  background-color: #f4f4fc;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 3rem;
+}
+
+.form-title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.message-banner {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+.error {
+  color: #e53935;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #444;
+}
+
+input,
+.dropdown {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  border-color: #7f5af0;
+  box-shadow: 0 0 5px #cfc1f4;
+  outline: none;
+}
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.save-btn {
+  background-color: #36b754;
+  color: white;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.save-btn:hover:enabled {
+  background-color: #2f9e49;
+}
+
+.save-btn:disabled {
+  background-color: #99ebac;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background-color: #ddd;
+  color: #333;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb;
+}
+
+
+/* Accounts list */
+
+.account-list {
+  margin-top: 20px;
+}
+
+.section-title {
+  font-size: 25px;
+  margin-bottom: 1.5rem;
+  margin-left: 10px;
+  color: #333;
+}
+
+.no-account-msg {
+  font-style: italic;
+  color: #888;
+  padding: 10px 0;
+}
+
+.account-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e4e4e4;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.04);
+}
+
+.account-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account-card.inactive {
+  background-color: #fcebea;
+  /* light red tone */
+  color: #842029;
+  /* darker text */
+}
+
+.icon-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.edit-icon,
+.delete-icon {
+  color: #5555dd;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.edit-icon:hover {
+  color: #3a3ad6;
+}
+
+.delete-icon:hover {
+  color: #dc3545;
+}
+
+/* toggle */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-container.inactive {
+  background-color: #f8d7da;
+  /* light red */
+  color: #721c24;
+  /* dark red */
+}
+
+/* Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+
+/* Toggle background */
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 22px;
+}
+
+/* Toggle circle */
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Active state */
+input:checked+.slider {
+  background-color: #4caf50;
+}
+
+input:checked+.slider:before {
+  transform: translateX(24px);
+}
+
+/* Label next to toggle */
+.status-label {
+  margin-left: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}

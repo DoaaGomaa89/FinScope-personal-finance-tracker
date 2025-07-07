@@ -1,0 +1,15 @@
+<div [ngClass]="{ 'sidebar': true, 'collapsed': isCollapsed }">
+  <ul>
+    <li routerLink="/dashboard" routerLinkActive="active">🏠 Finance Summary</li>
+    <li routerLink="/add-transaction" routerLinkActive="active">➕ Add Transaction</li>
+    <li routerLink="/view-transactions" routerLinkActive="active">📋 View Transactions</li>
+    <li routerLink="/accounts" routerLinkActive="active">🏦 Bank Accounts</li>
+    <li routerLink="/budget" routerLinkActive="active">💼 Budget Control</li>
+    <li routerLink="/export" routerLinkActive="active">📤 Export History</li>
+
+    <li routerLink="/profile" routerLinkActive="active">👤 Profile</li>
+    <li routerLink="/reset-password" routerLinkActive="active">🔑 Reset Password</li>
+    <li (click)="logout()">🚪 Logout</li>
+  </ul>
+</div>
+  

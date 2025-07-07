@@ -1,0 +1,248 @@
+.budget-wrapper {
+  max-width: 950px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+/* Form Container */
+.form-container {
+  background-color: #f4f4fc;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 3rem;
+}
+
+.form-title {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.message-banner {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+.error {
+  color: #e53935;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #444;
+}
+
+input,
+.dropdown {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  border-color: #7f5af0;
+  box-shadow: 0 0 5px #cfc1f4;
+  outline: none;
+}
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.save-btn {
+  background-color: #36b754;
+  color: white;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.save-btn:hover:enabled {
+  background-color: #2f9e49;
+}
+
+.save-btn:disabled {
+  background-color: #99ebac;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  background-color: #ddd;
+  color: #333;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb;
+}
+
+.form-message {
+  margin-top: 10px;
+  font-weight: 500;
+  color: #444;
+}
+
+/* Budget List */
+.budget-list {
+  margin-top: 20px;
+}
+
+.section-title {
+  font-size: 25px;
+  margin-left: 10px;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.budget-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e4e4e4;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.04);
+}
+
+.budget-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.edit-icon,
+.delete-icon {
+  color: #5555dd;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.edit-icon:hover {
+  color: #3a3ad6;
+}
+
+.delete-icon:hover {
+  color: #dc3545;
+}
+
+.no-budget-msg {
+  font-style: italic;
+  color: #888;
+  padding: 10px 0;
+}
+
+.modal-content {
+  border-radius: 10px;
+  padding: 1.5rem 1.2rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  animation: fadeInScale 0.3s ease-out;
+  max-width: 200px;
+  margin: auto;
+}
+
+.modal-header {
+  border-bottom: none;
+  justify-content: center;
+}
+
+.modal-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0;
+}
+
+.modal-footer {
+  border-top: none;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333 !important;
+}
+
+/* Cancel Button like earlier style */
+.btn-secondary {
+  background-color: #e2e2e2;
+  color: #333;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: #cacaca !important;
+  color: #111 !important;
+}
+
+::ng-deep .modal-content.custom-delete-modal {
+  max-width: 400px;
+  margin: auto;
+}
+
+/* Smooth scale animation */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="left-section">
+    <span class="brand">📊 FinScope</span>
+  </div>
+
+  <div class="right-section">
+
+    <div class="user-dropdown" (click)="toggleDropDown()">
+      <img src="images/profile.PNG" class="user-avatar" alt="User">
+      <span class="username">Hi, {{firstName || 'User'}}</span>
+
+      <div class="dropdown-menu" *ngIf="showDropDown">
+        <a routerLink="/profile" class="menu-item">Profile</a>
+        <div (click)="logout()" class="menu-item">Logout</div>
+      </div>
+
+    </div>
+  </div>
+
+
+</nav>
+
+
+<!-- 👤 -->

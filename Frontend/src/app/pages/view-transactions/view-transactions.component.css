@@ -1,0 +1,134 @@
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  background: linear-gradient(to right, #d0e8ff, #f3e8ff);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-bar input,
+.filter-bar select,
+.filter-bar button {
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.month-picker{
+  max-width: 180px;
+}
+
+.filter-bar button {
+  background-color: #4b7bec;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.filter-bar button:hover {
+  background-color: #3867d6;
+}
+
+.container {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+
+
+.filter-dropdown {
+  position: relative;
+  width: 200px;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  width: 300px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-body {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: #4b7bec;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #fc5c65;
+  color: white;
+}
+
+
+
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.custom-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  z-index: 1000;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  text-align: center;
+}
+
+.custom-modal .buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}

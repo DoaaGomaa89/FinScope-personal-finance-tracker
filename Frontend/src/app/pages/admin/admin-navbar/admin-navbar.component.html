@@ -1,0 +1,16 @@
+<nav class="admin-navbar">
+  <div class="left-section">
+    <span class="admin-brand">📊 FinScope Admin</span>
+  </div>
+
+  <div class="right-section">
+    <div class="admin-user-dropdown" (click)="toggleDropDown()">
+      <img src="images/profile.PNG" class="admin-user-avatar" alt="User">
+      <span class="username">Hi, {{adminName}}</span>
+
+      <div class="admin-dropdown-menu" *ngIf="showDropDown">
+        <div (click)="logout()">Logout</div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,15 @@
+<div class="login-container">
+    <div class="login-card">
+        <h2>Welcome Back</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <input type="email" placeholder="Enter email" formControlName="email">
+            <input type="password" placeholder="Enter password" formControlName="password">
+            
+            <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+
+        <p>New User? <a routerLink="/register">Create Account</a></p>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="chart-title">📌 Category-Wise Expenses</div>
+
+<div class="chart-summary-container" *ngIf="pieChartData.length > 0; else noCategoryData">
+  <!-- Pie Chart -->
+  <div class="chart-container">
+    <canvas baseChart
+      [data]="{
+        labels: pieChartLabels,
+        datasets: [{
+          data: pieChartData,
+          backgroundColor: pieChartColors[0].backgroundColor
+        }]
+      }"
+      [type]="pieChartType"
+      [options]="pieChartOptions"
+      [plugins]="pieChartPlugins">
+    </canvas>
+  </div>
+
+  <!-- Custom Legend -->
+  <div class="legend-box">
+    <div *ngFor="let label of pieChartLabels; let i = index" class="legend-item">
+      <span class="color-dot" [style.backgroundColor]="pieChartColors[0].backgroundColor[i]"></span>
+      <span class="legend-label">{{ label }}</span>
+      <span class="legend-percent">{{ getPercentage(pieChartData[i]) }}%</span>
+    </div>
+  </div>
+</div>
+
+<ng-template #noCategoryData>
+  <div class="no-data">
+    <img src="images/pie-chart.PNG" alt="No data for pie chart">
+    <p><strong>No Category-wise expense available.</strong></p>
+    <p class="text">Once you add expense transactions, they will appear here. </p>
+    <button routerLink="/add-transaction">Add Expense</button>
+  </div>
+</ng-template>

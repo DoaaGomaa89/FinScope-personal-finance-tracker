@@ -1,0 +1,149 @@
+<!-- <div class="admin-welcome">
+  <h5 class="greeting-heading">Welcome back, Admin 👑</h5>
+  <p>Here’s a quick summary of the system status.</p>
+<div class="dashboard-container">
+  <div class="top-actions">
+    <button routerLink="/admin/manage-users">Manage Users</button>
+    <button routerLink="/dashboard">Login as User</button>
+  </div>
+
+  <div class="summary-cards">
+    <div class="card">Total Users: {{ summary.totalUsers }}</div>
+    <div class="card">Admins: {{ summary.totalAdmin }}</div>
+    <div class="card">Active Users: {{ summary.activeUsers }}</div>
+    <div class="card">Inactive Users: {{ summary.inactiveUsers }}</div>
+  </div>
+
+  <div class="filters">
+    <input type="text" placeholder="Search by email" [(ngModel)]="filter.email">
+    <select [(ngModel)]="filter.active">
+      <option value="">All</option>
+      <option value="true">Active</option>
+      <option value="false">Inactive</option>
+    </select>
+    <button (click)="loadUsers()">Apply</button>
+    <button (click)="clearFilters()">Clear</button>
+  </div>
+
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.active ? 'Active' : 'Inactive' }}</td>
+        <td>{{ user.roles.join(', ') }}</td>
+        <td>
+          <button *ngIf="!user.active" (click)="activate(user.id)">Activate</button>
+          <button *ngIf="user.active" (click)="deactivate(user.id)">Deactivate</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div> -->
+
+<div class="admin-welcome">
+  <h5 class="greeting-heading">👋 Welcome back, <span class="admin-name">Admin</span>!</h5>
+  <p class="sub-heading">Here's a quick summary of your system's status overview.</p>
+
+
+  <div class="dashboard-container">
+    <div class="top-actions">
+      <button routerLink="/admin/manage-users" class="theme-btn">Manage Users</button>
+      <button routerLink="/dashboard"class="theme-btn">Login as User</button>
+    </div>
+
+    <div class="summary-cards">
+      <div class="card">
+        <div class="card-left">
+          <div class="icon">👥</div>
+          <div class="label">Total Users</div>
+          <div class="count themed">{{ summary.totalUsers }}</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-left">
+          <div class="icon">🧑</div>
+          <div class="label">Admins</div>
+          <div class="count themed">{{ summary.totalAdmin }}</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-left">
+          <div class="icon">✅</div>
+          <div class="label">Active Users</div>
+          <div class="count active-color">{{ summary.activeUsers }}</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-left">
+          <div class="icon">⛔</div>
+          <div class="label">Inactive Users</div>
+          <div class="count inactive-color">{{ summary.inactiveUsers }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filters">
+      <input type="text" class="filter-input" placeholder="Search by email" [(ngModel)]="filter.email">
+      <select class="filter-select" [(ngModel)]="filter.active">
+        <option value="">All</option>
+        <option value="true">Active</option>
+        <option value="false">Inactive</option>
+      </select>
+      <button class="theme-btn" (click)="loadUsers()">Apply</button>
+      <button class="theme-btn secondary" (click)="clearFilters()">Clear</button>
+    </div>
+
+    <div *ngIf="users.length === 0" class="no-users-msg">
+      🚫 No users found matching your criteria.
+    </div>
+
+    <div class="table-wrapper" *ngIf="users.length > 0">
+      <table class="user-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{user.createdAt | date:'yyyy-MM-dd'}}</td>
+            <td>
+              <span [ngClass]="user.active ? 'badge active' : 'badge inactive'">
+                {{ user.active ? 'Active' : 'Inactive' }}
+              </span>
+            </td>
+            <td>
+              <span class="badge role" *ngFor="let role of user.roles">
+                {{ role }}
+              </span>
+            </td>
+            <td>
+              <button class="theme-btn small danger" *ngIf="!user.active" (click)="activate(user.id)">Activate</button>
+              <button class="theme-btn small warning" *ngIf="user.active"
+                (click)="deactivate(user.id)">Deactivate</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

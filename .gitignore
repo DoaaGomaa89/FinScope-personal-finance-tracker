@@ -1,0 +1,24 @@
+# ========================
+# Java / Spring Boot
+# ========================
+/Backend/target/
+/Backend/.classpath
+/Backend/.project
+/Backend/.settings/
+/Backend/.metadata/
+*.log
+
+# ========================
+# Node / Angular
+# ========================
+/Frontend/node_modules/
+/Frontend/dist/
+/Frontend/.angular/
+/Frontend/.vscode/
+*.env
+
+# OS / System
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp

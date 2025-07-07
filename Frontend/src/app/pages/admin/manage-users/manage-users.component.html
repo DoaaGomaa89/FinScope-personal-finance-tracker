@@ -1,0 +1,62 @@
+<div class="manage-users-container">
+    <h2>Manage Users 👥</h2>
+
+    <div class="filters-container">
+        
+        <div class="filters">
+            <input type="text" placeholder="Search by email" [(ngModel)]="filter.email">
+
+            <select [(ngModel)]="filter.role">
+                <option value="">All Roles</option>
+                <option value="ADMIN">Admin</option>
+                <option value="USER">User</option>
+            </select>
+
+            <button class="btn primary" (click)="loadUser()">Apply</button>
+            <button class="btn secondary" (click)="clearFilters()">Clear</button>
+
+        </div>
+
+        <div class="dashboard-link">
+            <button routerLink="/admin/dashboard" class="btn primary">Admin dashboard</button>
+        </div>
+    </div>
+
+    <table class="user-table" *ngIf="!noData">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Role</th>
+                <th>Created On</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <span [ngClass]="{ 'badge': true, 'active': user.active, 'inactive': !user.active }">
+                        {{ user.active ? 'Active' : 'Inactive' }}
+                    </span>
+                </td>
+                <td>
+                    <span *ngFor="let role of user.roles" class="badge role">{{ role }}</span>
+                </td>
+                <td>{{ user.createdAt | date: 'yyyy-MM-dd' }}</td>
+                <td>
+                    <button class="btn promote" *ngIf="!hasRole(user, 'ADMIN')" (click)="makeAdmin(user.id)">Make
+                        Admin</button>
+                    <button class="btn remove" *ngIf="hasRole(user, 'ADMIN')" (click)="removeAdmin(user.id)">Remove
+                        Admin</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="noData" class="no-users-message">
+        🚫 No users found with the applied filter.
+    </div>
+</div>

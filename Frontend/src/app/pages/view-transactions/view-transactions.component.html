@@ -1,0 +1,77 @@
+<div class="filter-bar">
+
+  <!-- Type Filter -->
+  <select [(ngModel)]="filters.type">
+    <option value="">All Types</option>
+    <option value="INCOME">Income</option>
+    <option value="EXPENSE">Expense</option>
+  </select>
+
+  <!-- Category Filter (Dropdown with Income/Expense Collapsible) -->
+  <select [(ngModel)]="filters.category">
+    <option value="">Category</option>
+    <optgroup label="Income">
+      <option *ngFor="let cat of incomeCategories" [value]="cat">{{ cat }}</option>
+    </optgroup>
+    <optgroup label="Expense">
+      <option *ngFor="let cat of expenseCategories" [value]="cat">{{ cat }}</option>
+    </optgroup>
+  </select>
+
+
+  <!-- Bank Filter -->
+  <select [(ngModel)]="filters.bankId">
+    <option value="">All Banks</option>
+    <option *ngFor="let bank of accounts" [value]="bank.id">{{ bank.bankName }}</option>
+  </select>
+
+  <!-- Search filter -->
+  <input type="text" placeholder="Search" [(ngModel)]="filters.search">
+
+  <!-- Month filter -->
+  <input type="month" class ="month-picker" [(ngModel)]="filters.month">
+
+  <!-- Filter Buttons -->
+  <button (click)="fetchTransactions()">Apply</button>
+  <button (click)="resetFilters()">Reset</button>
+
+</div>
+
+<!-- Card layout html -->
+
+<div class="container">
+  <div class="card" *ngFor="let t of transactions">
+    <div class="card-header">
+      <span>{{ categoryEmojiMap[t.category.toLowerCase()] || t.category }}</span>
+
+      <span [ngStyle]="{'color': t.type === 'EXPENSE' ? 'red' : 'green'}">
+        {{ t.type }} ₹{{ t.amount }}
+      </span>
+    </div>
+    <div class="card-body">
+      <p>{{ t.description }}</p>
+      <p><strong>Date:</strong> {{ t.date | date: 'dd MMM yyyy' }}</p>
+      <p><strong>Bank:</strong> {{ t.bankName }}</p>
+    </div>
+
+    <div class="card-footer">
+      <button class="btn btn-edit" (click)="openEditModel(t)">Edit</button>
+      <button class="btn btn-delete" (click)="confirmDelete(t.id)">Delete</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Delete Confirmation Modal -->
+<div class="modal-backdrop" *ngIf="showDeleteModal"></div>
+<div class="custom-modal" *ngIf="showDeleteModal">
+  <div class="modal-content">
+    <h5>Confirm Delete</h5>
+    <p>Are you sure you want to delete this transaction?</p>
+    <div class="buttons">
+      <button (click)="performDelete()" class="btn btn-danger">Yes, Delete</button>
+      <button (click)="cancelDelete()" class="btn btn-secondary">Cancel</button>
+    </div>
+  </div>
+</div>

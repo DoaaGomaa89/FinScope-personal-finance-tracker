@@ -1,0 +1,74 @@
+/* .greeting-banner {
+ 
+  margin: 1.2rem 2rem 0.5rem 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: #f8f9fc;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+} */
+
+.greeting-content h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #222;
+}
+
+
+.greeting-content p {
+  margin: 0.4rem 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+
+
+
+.greeting-banner {
+  margin: 1.2rem 2rem 0.5rem 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: #f8f9fc;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+/* New section spacing */
+.dashboard-wrapper {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb;
+  gap: 1.5rem; /* ✅ New line: creates vertical spacing between children */
+}
+
+.charts-row {
+  width: 100%;
+}
+
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+
+app-dashboard-category-summary,
+app-dashboard-recent {
+  flex: 1 1 48%;
+  max-width: 48%;
+}
+
+
+@media (max-width: 768px) {
+  app-dashboard-category-summary,
+  app-dashboard-recent {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+}

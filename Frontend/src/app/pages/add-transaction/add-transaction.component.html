@@ -1,0 +1,81 @@
+<div class="form-heading">
+  <h2>Stay in Control of Your Finances</h2>
+  <p class="quote">Manage your money, manage your life</p>
+</div>
+
+<div class="page-wrapper">
+
+  <div class="image-section">
+    <img src="images/analytics.png" alt="Analytics chart" width="100%" />
+  </div>
+
+  <div class="transaction-card">
+
+    <h2>➕ New Transaction</h2>
+
+    <div *ngIf="message" class="message-banner">
+      {{message}}
+    </div>
+
+    <div class="type-toggle">
+      <button [class.active]="transactionType === 'EXPENSE'" (click)="setType('EXPENSE')">EXPENSE</button>
+      <button [class.active]="transactionType === 'INCOME'" (click)="setType('INCOME')">INCOME</button>
+    </div>
+
+    <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+
+<!-- Category input -->
+      <select formControlName="category" class="input-field" required>
+        <option value="" disabled selected hidden>Select Category</option>
+        <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+      </select>
+      <div class="error" *ngIf="transactionForm.get('category')?.touched && transactionForm.get('category')?.invalid">
+        Category is required
+      </div>
+<!-- Description input -->
+      <input formControlName="description" class="input-field" placeholder="Description" />
+      <div class="error"
+        *ngIf="transactionForm.get('description')?.touched && transactionForm.get('description')?.invalid">
+        Description is required
+      </div>
+<!-- Amount input -->
+      <input formControlName="amount" type="number" class="input-field" placeholder="Amount (₹)" />
+      <div class="error" *ngIf="transactionForm.get('amount')?.touched && transactionForm.get('amount')?.invalid">
+        Amount is required
+      </div>
+<!-- Date input -->
+      <input [matDatepicker]="picker" formControlName="date" class="input-field" placeholder="Select Date*"
+        (click)="picker.open()" readonly />
+      <mat-datepicker-toggle [for]="picker" matSuffix style="display: none;"></mat-datepicker-toggle>
+      <mat-datepicker #picker panelClass="datepicker-down"></mat-datepicker>
+      <div class="error" *ngIf="transactionForm.get('date')?.touched && transactionForm.get('date')?.invalid">
+        Date is required
+      </div>
+<!-- Bank input -->
+      <select formControlName="accountId" class="input-field" required>
+        <option value="" disabled selected hidden>Select Account</option>
+
+        <option *ngIf ="accounts.length ===0" disabled>⚠️ You need to add a bank account before adding a transaction.</option>
+        <option 
+        *ngFor="let acc of accounts" 
+        [value]="acc.id"
+        [disabled]="!acc.isActive"
+        [ngClass]="{'inactive-option': !acc.isActive}">
+          {{ acc.bankName }} - {{ acc.accountName }} {{!acc.isActive ? '(Inactive)' : ''}}
+        </option>
+      </select>
+      <div class="error" *ngIf="transactionForm.get('accountId')?.touched && transactionForm.get('accountId')?.invalid">
+        Select valid account
+      </div>
+
+<!-- Buttons -->
+      <div class="btn-group">
+        <button type="submit" [disabled]="transactionForm.invalid" class="save-btn">💾 Save Transaction</button>
+        <button type="reset" class="cancel-btn">Cancel</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

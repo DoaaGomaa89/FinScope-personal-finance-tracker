@@ -1,0 +1,91 @@
+.export-container {
+  background-color: #f4f4fc;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 950px;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: left;
+}
+
+.export-title {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.export-description {
+  margin-bottom: 1.5rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.preview-box {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.03);
+}
+
+.preview-heading {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.preview-table th,
+.preview-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 14px;
+}
+
+.preview-table th {
+  background-color: #f8f8f8;
+  font-weight: 600;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #6b3fa0;
+  color: #fff;
+  transition: background-color 0.2s;
+}
+
+.button-group button:hover {
+  background-color: #5b3f7d;
+}
+
+

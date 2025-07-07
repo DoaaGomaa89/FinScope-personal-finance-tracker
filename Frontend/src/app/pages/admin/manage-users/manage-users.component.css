@@ -1,0 +1,113 @@
+.manage-users-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dashboard-link {
+  display: flex;
+  align-items: center;
+}
+
+.filters input,
+.filters select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.btn {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.primary {
+  background-color: #6c63ff;
+  color: white;
+}
+
+.secondary {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.link-style {
+  background: none;
+  color: #6c63ff;
+  text-decoration: underline;
+}
+
+
+.promote {
+  background-color: #28a745;
+  color: white;
+}
+
+.remove {
+  background-color: #dc3545;
+  color: white;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.user-table th,
+.user-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #f7f7f7;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.active {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.inactive {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.role {
+  background-color: #e1eaff;
+  color: #2f54eb;
+}
+
+.no-users-message {
+  margin-top: 20px;
+  font-style: italic;
+  color: #555;
+}

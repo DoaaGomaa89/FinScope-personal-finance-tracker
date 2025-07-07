@@ -1,0 +1,406 @@
+/* 
+.page-wrapper {
+  display: flex;
+  padding: 30px;
+  gap: 40px;
+  flex-wrap: wrap;
+  background-color: #f4f6fc;
+}
+.form-heading {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.form-heading h2 {
+  font-size: 38px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  color: #4A148C; 
+}
+
+.quote {
+  font-style: italic;
+  color: #555;
+  font-size: 20px;
+  text-align: left;
+}
+
+
+
+.image-section {
+  flex: 1;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.image-section img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+
+.transaction-card {
+  flex: 2;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+}
+
+
+.transaction-card h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.type-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.message-banner {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+.error {
+  color: #e53935;
+  font-size: 13px;
+  padding-left: 5px;
+  
+}
+
+.mat-datepicker-toggle {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.type-toggle button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+}
+
+.type-toggle button:hover {
+  background-color: #c5c5c5;
+}
+
+.type-toggle button.active {
+  background-color: #6b3fa0;
+  color: white;
+}
+
+
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+.input-field:focus {
+  border-color: #6b3fa0;
+  outline: none;
+}
+
+.snackbar-success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.snackbar-warning {
+  background-color: #ff9800;
+  color: white;
+}
+
+.snackbar-error {
+  background-color: #f44336;
+  color: white;
+}
+
+
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.save-btn {
+  background-color: #36b754;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #2f9e49;
+}
+
+.cancel-btn {
+  background-color: #ddd;
+  color: #333;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb;
+}
+
+.inactive-option {
+  color: grey;
+  font-style: italic;
+}
+ */
+
+ /* Main layout */
+.page-wrapper {
+  display: flex;
+  padding: 30px;
+  gap: 40px;
+  flex-wrap: wrap;
+  background-color: #f4f6fc;
+  justify-content: center;
+}
+
+/* Heading */
+.form-heading {
+  text-align: left;
+  margin-bottom: 24px;
+  padding: 0 20px;
+}
+
+.form-heading h2 {
+  font-size: 38px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  color: #4A148C;
+}
+
+.quote {
+  font-style: italic;
+  color: #555;
+  font-size: 20px;
+  text-align: left;
+}
+
+/* Image section */
+.image-section {
+  flex: 1;
+  max-width: 500px;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.image-section img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+/* Form container */
+.transaction-card {
+  flex: 2;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  min-width: 280px;
+}
+
+/* Header */
+.transaction-card h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Type toggle */
+.type-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.type-toggle button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+}
+
+.type-toggle button:hover {
+  background-color: #c5c5c5;
+}
+
+.type-toggle button.active {
+  background-color: #6b3fa0;
+  color: white;
+}
+
+/* Input Fields */
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+.input-field:focus {
+  border-color: #6b3fa0;
+  outline: none;
+}
+
+/* Validation/Error */
+.error {
+  color: #e53935;
+  font-size: 13px;
+  padding-left: 5px;
+}
+
+/* Snackbar styles */
+.snackbar-success {
+  background-color: #4caf50;
+  color: white;
+}
+.snackbar-warning {
+  background-color: #ff9800;
+  color: white;
+}
+.snackbar-error {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Button group */
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.save-btn {
+  background-color: #36b754;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #2f9e49;
+}
+
+.cancel-btn {
+  background-color: #ddd;
+  color: #333;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb;
+}
+
+.inactive-option {
+  color: grey;
+  font-style: italic;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .page-wrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .form-heading h2 {
+    font-size: 28px;
+  }
+
+  .quote {
+    font-size: 16px;
+  }
+
+  .transaction-card {
+    padding: 20px;
+  }
+
+  .type-toggle button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .save-btn,
+  .cancel-btn {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .form-heading h2 {
+    font-size: 24px;
+  }
+}
+
