@@ -1,11 +1,11 @@
 # FinScope - Personal Finance Tracker
 
-# A full-stack personal finance tracker built using:
+## A full-stack personal finance tracker built using:
   - Backend: Spring Boot + MySQL
   - Frontend: Angular (standalone components)
   - Deployment: Render (backend), Netlify (frontend), Railway (MySQL)
 
-# Features
+## Features
   - Add, edit, and delete income and expenses
   - Add, edit, and delete bank accounts (linked to transactions)
   - Dashboard with monthly summary bar chart + category-wise expense pie charts
