@@ -36,7 +36,7 @@ export class RegisterComponent {
     const {email,password} = this.registerForm.value;
     this.authService.register({email,password}).subscribe({
       next: (response: any) => {
-        alert('Registration successful! Please complete your profile.');
+        
         localStorage.setItem('token', response.token);
         this.router.navigate(['/profile'])
       },

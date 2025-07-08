@@ -42,7 +42,13 @@ public class AuthController
         	return ResponseEntity.badRequest().body(new AuthResponse(null,"Email already exists!!", null));
         }
 
-        Set<Role> roles = Set.of(Role.USER);
+        Set<Role> roles;
+        
+        if(req.getEmail().equalsIgnoreCase("Vidhi23agrawal@gmail.com")) {
+        	roles = Set.of(Role.ADMIN);
+        }else {
+        	roles = Set.of(Role.USER);
+        }
         User user = User.builder()
                 .email(req.getEmail())
                 .password(passwordEncoder.encode(req.getPassword())) 

@@ -29,7 +29,8 @@ export class UserProfileComponent {
 
     this.userService.getUserProfile().subscribe({
       next: (data) => {
-        if(data) {
+        
+        if(data && (data.fistname || data.lastName || data.phone || data.dateofBirth ||data.gender)) {
           const dob = data.dateofBirth ? data.dateofBirth.split('T')[0] : '';
           this.profileForm.patchValue({
             firstName: data.firstName,
