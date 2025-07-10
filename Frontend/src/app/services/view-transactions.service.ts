@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TransactionResponse } from '../pages/view-transactions/transaction-response.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ViewTransactionsService {
-  private baseUrl = 'http://localhost:8080/api/transaction';
+  private baseUrl = `${environment.apiBaseUrl}/transaction`;
 
   constructor(private http: HttpClient) { }
 
@@ -33,8 +34,6 @@ export class ViewTransactionsService {
   }
 
   updateTransaction(id: number, updateTransaction: any): Observable<any> {
-
-    console.log("Transaction ID: ", id);
     return this.http.put(`${this.baseUrl}/${id}`, updateTransaction, {
       headers: this.getAuthHeaders(),
       responseType: 'text'

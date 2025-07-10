@@ -1,7 +1,7 @@
 [build]
     command = "ng build --configuration=production"
-    publish = "dist/frontend"
-    base = "frontend"
+    publish = "Frontend/dist/frontend"
+    base = "Frontend"
 
 [build.environment]
-    NODE_VERSION - "18"
+    NODE_VERSION = "18"

@@ -75,7 +75,6 @@ export class DashboardMonthlySummaryComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getMonthlySummary().subscribe((data) => {
-      console.log('Monthly data', data);
 
       const incomeMap = new Map<string, number>();
       const expenseMap = new Map<string, number>();

@@ -19,7 +19,6 @@ export class DashboardStatsComponent {
 
   ngOnInit():void{
     this.service.getBalance().subscribe((data) =>{
-      console.log("Your Summary of balance", data);
       this.balance = data.onlineBalance;
       this.income = data.totalIncome;
       this.expense = data.totalExpense;

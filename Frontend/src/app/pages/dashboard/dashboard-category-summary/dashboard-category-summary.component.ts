@@ -35,13 +35,6 @@ export class DashboardCategorySummaryComponent {
     plugins: {
       legend: {
         display: false
-        // labels: {
-        //   usePointStyle: true,
-        //   pointStyle: 'circle',
-        //   font: {
-        //     size: 10
-        //   }
-        // }
       },
       datalabels: {
         formatter: (value: number, ctx: any) => {
@@ -83,7 +76,6 @@ public pieChartPlugins =  [ChartDataLabels];
         this.prepareChartData(data);
       },
       error: (err) => {
-        console.error('Error loading category summary', err);
       }
     });
   }

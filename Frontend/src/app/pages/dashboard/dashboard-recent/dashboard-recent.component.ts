@@ -18,7 +18,7 @@ export class DashboardRecentComponent implements OnInit{
   ngOnInit():void{
     this.service.getRecentTransacations().subscribe({
       next : (data) => this.recentTransactions = data,
-      error: (err) => console.error("Failed tp fetch transactions")
+      error: (err) => {}
     });
   }
 

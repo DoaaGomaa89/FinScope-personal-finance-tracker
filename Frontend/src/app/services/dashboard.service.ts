@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MonthlySummaryDto } from '../pages/dashboard/monthlySummaryDto';
+import { environment } from '../../environments/environment';
 
 export interface CategorySummaryDto {
   category: string;
@@ -22,7 +23,7 @@ export interface TransactionResponse {
 })
 export class DashboardService {
 
-  private api = 'http://localhost:8080/api/transaction';
+  private api = `${environment.apiBaseUrl}/transaction`;
 
   constructor(private http: HttpClient) { }
 
@@ -41,8 +42,6 @@ getAuthHeaders(): HttpHeaders {
 
   
   getMonthlySummary(): Observable<MonthlySummaryDto[]> {
-    
-
     return this.http.get<any[]>(`${this.api}/summary/monthly`, {
       headers: this.getAuthHeaders()
     });

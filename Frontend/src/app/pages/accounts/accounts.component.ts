@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AccountService } from '../../services/account.service';
 import { Account } from './account.model';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-accounts',
@@ -61,7 +60,6 @@ export class AccountsComponent implements OnInit {
   toggleAccountStatus(account: Account): void {
   this.accountService.toggleStatus(account.id).subscribe({
     next: (updatedAccount: Account) => {
-      console.log("updated Account from serve: ", updatedAccount);
       account.isActive = updatedAccount.isActive;
       this.messageToggle = account.isActive ? '✅ Account activated' : '⚠️ Account deactivated';
       this.clearMessageAfterDelay();

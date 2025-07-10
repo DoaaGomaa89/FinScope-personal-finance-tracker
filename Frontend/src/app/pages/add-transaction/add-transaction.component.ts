@@ -87,8 +87,6 @@ export class AddTransactionComponent implements OnInit {
     this.accountService.getAllAccounts().subscribe((res) => {
       this.accounts = res;
       this.showAccountWarning = this.accounts.length === 0;
-
-      // if(this.showAccountWarning) { this.transactionForm.disable()};
     });
   }
 
@@ -116,11 +114,8 @@ export class AddTransactionComponent implements OnInit {
 
 
     if (this.transactionForm.invalid) {
-      console.log('Form is invalid'); // Add this for debugging
       return;
     }
-
-    // const transaction: Transaction = this.transactionForm.value;
     const formValue = this.transactionForm.value;
 
     const cleanedCategory = this.emojiCategoryMap[formValue.category] || formValue.category;
@@ -133,9 +128,6 @@ export class AddTransactionComponent implements OnInit {
 
     this.transacionsService.addTransaction(transaction).subscribe({
       next: (res: any) => {
-
-        console.log("Backend data", res);
-
         if (res.budgetExceeded) {
           this.snackBar.open(res.message || '⚠️ Budget exceeded!', 'Close', {
             duration: 5000,
@@ -160,12 +152,9 @@ export class AddTransactionComponent implements OnInit {
 
         this.transactionForm.markAsPristine();
         this.transactionForm.markAsUntouched();
-
-        // setTimeout(() => {this.message = ''; },3000);
       },
 
       error: (err) => {
-        console.log("Backend error", err);
         this.snackBar.open('❌ Something went wrong. Please try again.', 'Close', {
           duration: 3000,
           panelClass: ['snackbar-error']
@@ -173,7 +162,4 @@ export class AddTransactionComponent implements OnInit {
       }
     });
   }
-
-
-
 }
