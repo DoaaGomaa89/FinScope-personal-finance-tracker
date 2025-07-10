@@ -15,7 +15,6 @@ import com.Finance_Tracker.demo.service.UserService;
 
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/user")
 @RequiredArgsConstructor

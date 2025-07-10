@@ -22,7 +22,6 @@ import com.Finance_Tracker.demo.security.JwtUtil;
 
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor

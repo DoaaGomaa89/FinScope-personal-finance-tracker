@@ -23,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/budgets")
-@CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
 public class BudgetController {
 

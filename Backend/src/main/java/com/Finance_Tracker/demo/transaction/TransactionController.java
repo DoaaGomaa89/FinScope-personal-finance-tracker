@@ -31,7 +31,6 @@ import com.Finance_Tracker.demo.util.CsvExport;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/transaction")
 @RequiredArgsConstructor
