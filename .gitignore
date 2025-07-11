@@ -1,6 +1,10 @@
 # ========================
 # Java / Spring Boot
 # ========================
+/Backend/target/
+*.jar
+*.war
+*.class
 /Backend/.classpath
 /Backend/.project
 /Backend/.settings/
@@ -25,6 +29,6 @@ Thumbs.db
 *.tmp
 
 # ========================
-# Build Tools
+# Maven Wrapper
 # ========================
 /Backend/.mvn/
