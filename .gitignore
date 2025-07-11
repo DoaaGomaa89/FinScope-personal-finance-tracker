@@ -1,7 +1,6 @@
 # ========================
 # Java / Spring Boot
 # ========================
-/Backend/target/
 /Backend/.classpath
 /Backend/.project
 /Backend/.settings/
@@ -17,8 +16,15 @@
 /Frontend/.vscode/
 *.env
 
-# OS / System
+# ========================
+# IDE & OS Specific
+# ========================
 .DS_Store
 Thumbs.db
 *.bak
 *.tmp
+
+# ========================
+# Build Tools
+# ========================
+/Backend/.mvn/
