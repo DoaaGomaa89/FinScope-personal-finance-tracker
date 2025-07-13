@@ -27,8 +27,3 @@
 Thumbs.db
 *.bak
 *.tmp
-
-# ========================
-# Maven Wrapper
-# ========================
-/Backend/.mvn/
