@@ -1,13 +1,22 @@
-# Stage 1: Build Spring Boot app
-FROM maven:3.9.4-eclipse-temurin-17 as builder
-WORKDIR /app
-COPY pom.xml mvnw .mvn/ ./
-COPY src ./src
-RUN chmod +x mvnw && ./mvnw clean package -DskipTests
+# Use OpenJDK base image
+FROM eclipse-temurin:17-jdk
 
-# Stage 2: Run Spring Boot app
-FROM eclipse-temurin:17-jre
+# Set working directory
 WORKDIR /app
-COPY --from=builder /app/target/*.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+# Copy wrapper files first to leverage Docker cache
+COPY .mvn .mvn
+COPY mvnw mvnw
+COPY mvnw.cmd mvnw.cmd
+COPY pom.xml pom.xml
+
+# Download dependencies using wrapper
+RUN ./mvnw dependency:go-offline -B
+# Copy source code
+COPY src src
+
+# Build the project
+RUN ./mvnw clean package -DskipTests
+
+# Run the application
+CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
