@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: finscope-mysql
+    environment:
+      MYSQL_DATABASE: finscope
+      MYSQL_USER: finscope
+      MYSQL_PASSWORD: finscope
+      MYSQL_ROOT_PASSWORD: root
+    command: ["--default-authentication-plugin=mysql_native_password"]
+    ports:
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -pfinscope || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: finscope-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/finscope?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: finscope
+      SPRING_DATASOURCE_PASSWORD: finscope
+      # Optional: Hibernate create/update behaviour is set in application.properties
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    container_name: finscope-frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    # If you need to serve from a different port, change the mapping above.
+volumes:
+  dbdata:

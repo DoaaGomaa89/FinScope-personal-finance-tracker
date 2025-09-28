@@ -1,22 +1,15 @@
-# Use OpenJDK base image
-FROM eclipse-temurin:17-jdk
-
-# Set working directory
+# ---- build stage ----
+FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
-
-# Copy wrapper files first to leverage Docker cache
-COPY .mvn .mvn
-COPY mvnw mvnw
-COPY mvnw.cmd mvnw.cmd
-COPY pom.xml pom.xml
-
-# Download dependencies using wrapper
-RUN ./mvnw dependency:go-offline -B
-# Copy source code
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw -q -B dependency:go-offline
 COPY src src
+RUN ./mvnw -q -B clean package -DskipTests
 
-# Build the project
-RUN ./mvnw clean package -DskipTests
-
-# Run the application
-CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
+# ---- runtime stage ----
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/app/app.jar"]
